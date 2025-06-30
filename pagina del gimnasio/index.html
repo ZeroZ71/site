@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Prueba de conexión</title>
+</head>
+<body>
+    <h1>¡Conexión exitosa con el servidor Node.js!</h1>
+    <button onclick="probarConexion()">Probar conexión con el servidor</button>
+    <div id="respuesta"></div>
+    <script>
+        function probarConexion() {
+            fetch('/')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('respuesta').innerHTML = 'Respuesta del servidor:<br>' + data;
+                })
+                .catch(error => {
+                    document.getElementById('respuesta').innerHTML = 'Error: ' + error;
+                });
+        }
+    </script>
+</body>
+</html>
